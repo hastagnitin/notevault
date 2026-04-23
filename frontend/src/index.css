@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-deep: #0A0D14;
+  --bg-fog: #111520;
+  --text-pure: #F8FAFC;
+  --text-muted: #94A3B8;
+  --accent-gold: #D4AF37;
+  --font-quote: 'Playfair Display', serif;
+}
+
+@layer base {
+  body {
+    @apply bg-[#0A0D14] text-slate-100 antialiased selection:bg-slate-700 selection:text-white overflow-hidden;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Inter', system-ui, sans-serif;
+    @apply tracking-tight;
+  }
+}
+
+@layer components {
+  /* Academic Card Container (formerly cinematic-glass) */
+  .cinematic-glass {
+    @apply bg-[#0f1422]/60 backdrop-blur-xl border border-slate-700/50 rounded-3xl;
+    box-shadow: 
+      0 10px 40px -10px rgba(0,0,0,0.5),
+      inset 0 1px 0 rgba(255,255,255,0.05);
+  }
+
+  .mono-input-line {
+    @apply w-full bg-transparent border-b border-slate-600/40 py-3 
+           text-sm transition-all duration-500 text-slate-200
+           placeholder:text-slate-500 focus:outline-none focus:border-slate-300;
+  }
+
+  .input-focus-line {
+    @apply absolute bottom-0 left-0 h-[1px] bg-slate-200 w-0 transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)];
+  }
+  .input-wrapper:focus-within .input-focus-line {
+    @apply w-full;
+  }
+
+  /* Refined Button */
+  .mono-button {
+    @apply relative overflow-hidden px-8 py-4 rounded-full text-sm font-medium tracking-wide
+           transition-all duration-500 disabled:opacity-50 disabled:cursor-not-allowed
+           flex items-center justify-center gap-3;
+  }
+
+  .mono-button-solid {
+    @apply bg-slate-100 text-slate-900 hover:bg-white hover:shadow-lg active:scale-95;
+  }
+
+  .mono-button-ghost {
+    @apply text-slate-400 hover:text-slate-100 transition-colors duration-300;
+  }
+
+  .premium-surface {
+    @apply bg-[#111624] border border-slate-700/30;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+/* Background Ambient */
+.vignette-overlay {
+  background: radial-gradient(circle at center, transparent 0%, #0A0D14 110%);
+  @apply pointer-events-none absolute inset-0 z-0;
+}
+
+/* Typography Overrides */
+.display-huge {
+  font-family: 'Lora', serif;
+  font-size: clamp(60px, 12vw, 120px);
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  @apply font-bold text-slate-600/[0.04] select-none pointer-events-none;
+}
