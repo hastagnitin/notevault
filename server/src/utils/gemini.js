@@ -10,7 +10,7 @@ if (!apiKey) {
 const genAI = apiKey ? new GoogleGenerativeAI(apiKey) : null;
 
 // Default model configuration
-const DEFAULT_MODEL = 'gemini-2.5-flash';
+const DEFAULT_MODEL = 'gemini-1.5-flash';
 
 // Track API failures for fallback mode
 let apiQuotaExceeded = false;

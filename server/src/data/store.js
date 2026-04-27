@@ -5,5 +5,7 @@ module.exports = {
   notes: [],
   chats: {},
   quizzes: {},
-  cheatsheets: {}
+  cheatsheets: {},
+  discussions: [],
+  sessions: [], // for study hours
 };

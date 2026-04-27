@@ -114,9 +114,25 @@
     color: var(--text-primary);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    overflow: hidden;
-    height: 100vh;
+    min-height: 100vh;
     font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  /* Custom Scrollbar for Antigravity */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(34, 211, 238, 0.1);
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(34, 211, 238, 0.3);
   }
 
 @layer utilities {
@@ -224,5 +240,36 @@
   :root[data-theme="dark"] .hover-antigravity-fab:hover {
     transform: scale(1.1) rotate(5deg);
     box-shadow: 0 0 24px rgba(0, 212, 255, 0.5);
+  }
+
+  /* Responsive Adjustments */
+  @media (max-width: 1024px) {
+    body {
+      overflow-y: auto;
+      height: auto;
+    }
+  }
+
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+  
+  /* Animations */
+  @keyframes slideInRight {
+    from { transform: translateX(-100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+  }
+  
+  .animate-slide-in-right {
+    animation: slideInRight 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  }
+  
+  @keyframes fadeInUp {
+    from { transform: translateY(30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+  
+  .animate-fade-in-up {
+    animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
   }
 }

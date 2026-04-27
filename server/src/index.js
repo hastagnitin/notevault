@@ -18,6 +18,8 @@ const quizRouter = require('./routes/quiz');
 const cheatsheetRouter = require('./routes/cheatsheet');
 const uploadRouter = require('./routes/upload');
 const searchRouter = require('./routes/search');
+const statsRouter = require('./routes/stats');
+const discussionsRouter = require('./routes/discussions');
 
 const errorHandler = require('./middleware/errorHandler');
 
@@ -94,6 +96,8 @@ app.use('/api/quiz', quizRouter);
 app.use('/api/cheatsheet', cheatsheetRouter);
 app.use('/api/upload', uploadRouter);
 app.use('/api/search', searchRouter);
+app.use('/api/dashboard', statsRouter);
+app.use('/api/discussions', discussionsRouter);
 
 // ─── 404 Handler ─────────────────────────────────────────────────────────────
 app.use((_req, res) => {
